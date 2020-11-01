@@ -27,6 +27,14 @@ class EndComponent extends React.Component {
 		        marginBottom: '25px'
 		      }}
 		      >Thanks for playing The Tandom Trivia Quiz!</Header>
+
+		      <Header
+		      style={{
+		      	fontSize:'7em'
+		      }}
+		      >{((this.props.correct/21).toFixed(2) * 100)}%
+		      </Header>
+
 		      <Container textAlign='left' text>
 		        <p style={{
 		          fontSize: '2em'
