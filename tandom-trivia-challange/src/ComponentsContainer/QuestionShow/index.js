@@ -15,7 +15,11 @@ class QuestionShow extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.checkAnswer(this.state.value)
+		if (this.props.buttonMessage === 'Submit') {
+			this.props.checkAnswer(this.state.value)
+		} else if (this.props.buttonMessage === 'Next Question') {
+			this.props.advanceQuestion()
+		}
 	}
 
 	render() {
@@ -54,11 +58,16 @@ class QuestionShow extends React.Component {
 		      			)
 		      	})}
 
-
+		      	{
+		      		this.props.message === ''
+		      		?
+		      		null
+		      		:
 	      			<Message
 	      			color={this.props.color}
 	      			header={this.props.message}
 	      			/>
+		      	}
 
 			      <Button
 			      size='big'

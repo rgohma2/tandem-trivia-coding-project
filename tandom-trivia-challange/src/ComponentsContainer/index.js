@@ -10,6 +10,7 @@ class ComponetsContainer extends React.Component {
 		this.state = {
 			start: false,
 			index: 0,
+			qNumber: 1,
 			question: {},
 			choices:[],
 			message: '',
@@ -152,7 +153,8 @@ class ComponetsContainer extends React.Component {
 			})
 		}
 		this.setState({
-			buttonMessage: 'Next Question'
+			buttonMessage: 'Next Question',
+			index: this.state.index + 1
 		})
 	}
 
@@ -171,6 +173,16 @@ class ComponetsContainer extends React.Component {
 		})
 	}
 
+	advanceQuestion = () => {
+		this.getChoices()
+		this.getQuestion()
+		this.setState({
+			message: '',
+			buttonMessage: 'Submit',
+			qNumber: this.state.qNumber + 1
+		})
+	}
+
 	render() {
 		return(
 			<div>
@@ -183,9 +195,10 @@ class ComponetsContainer extends React.Component {
 				:
 				<QuestionShow
 				checkAnswer={this.checkAnswer}
+				advanceQuestion={this.advanceQuestion}
 				buttonMessage={this.state.buttonMessage}
 				question={this.state.question}
-				qNumber={this.state.index + 1}
+				qNumber={this.state.qNumber}
 				choices={this.state.choices}
 				color={this.state.color}
 				message={this.state.message}
