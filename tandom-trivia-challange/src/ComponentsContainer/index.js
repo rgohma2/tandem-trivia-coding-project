@@ -11,6 +11,7 @@ class ComponetsContainer extends React.Component {
 			start: false,
 			index: 0,
 			question: {},
+			choices:[],
 			questions: [
 			  {
 			    "question": "What was Tandem's previous name?",
@@ -131,11 +132,23 @@ class ComponetsContainer extends React.Component {
 			start: true
 		})
 		this.getQuestion()
+		this.getChoices()
 	}
 
 	getQuestion = () => {
 		this.setState({
 			question: this.state.questions[this.state.index]
+		})
+	}
+
+	getChoices = () => {
+		const question = this.state.questions.[this.state.index]
+		const choices = question.incorrect
+		console.log(choices);
+		choices.splice((Math.random(1) * 4), 0, question.correct)
+		console.log(choices);
+		this.setState({
+			choices: choices
 		})
 	}
 
@@ -152,6 +165,7 @@ class ComponetsContainer extends React.Component {
 				<QuestionShow
 				question={this.state.question}
 				qNumber={this.state.index + 1}
+				choices={this.state.choices}
 				/>
 			}
 			</div>
