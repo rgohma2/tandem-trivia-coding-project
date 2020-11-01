@@ -149,7 +149,10 @@ class ComponetsContainer extends React.Component {
 				startQuiz={this.startQuiz}
 				/>
 				:
-				<QuestionShow/>
+				<QuestionShow
+				question={this.state.question}
+				qNumber={this.state.index + 1}
+				/>
 			}
 			</div>
 		)
