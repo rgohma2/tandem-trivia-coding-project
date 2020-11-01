@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Segment, Button, Container, Form, Message} from 'semantic-ui-react'
+import {Header, Segment, Button, Container, Form, Message, Progress} from 'semantic-ui-react'
 
 class QuestionShow extends React.Component {
 	constructor(props) {
@@ -73,11 +73,15 @@ class QuestionShow extends React.Component {
 			      size='big'
 			      color='green'
 			      style={{
-			        marginTop: '50px'
+			        margin: '50px 0'
 			      }}
 			      >{this.props.buttonMessage}</Button>
 			    </Form.Group>
 			  </Form>
+				  <Progress
+				  percent={this.props.progress.toFixed(2)} 
+				  progress
+				  />
 
 		    </Segment>
 		)

@@ -15,7 +15,9 @@ class ComponetsContainer extends React.Component {
 			choices:[],
 			message: '',
 			color:'',
+			correct: 0,
 			buttonMessage: 'Submit',
+			progress: 0,
 			questions: [
 			  {
 			    "question": "What was Tandem's previous name?",
@@ -144,7 +146,8 @@ class ComponetsContainer extends React.Component {
 		if (this.state.question.correct === answer) {
 			this.setState({
 				message: 'correct!',
-				color: 'green'
+				color: 'green',
+				correct: this.state.correct + 1
 			})
 		} else {
 			this.setState({
@@ -176,11 +179,20 @@ class ComponetsContainer extends React.Component {
 	advanceQuestion = () => {
 		this.getChoices()
 		this.getQuestion()
+		this.getProgress()
 		this.setState({
 			message: '',
 			buttonMessage: 'Submit',
 			qNumber: this.state.qNumber + 1
 		})
+	}
+
+	getProgress = () => {
+		const percent = (this.state.qNumber/21)
+		this.setState({
+			progress: (percent.toFixed(2) * 100)
+		})
+
 	}
 
 	render() {
@@ -202,6 +214,7 @@ class ComponetsContainer extends React.Component {
 				choices={this.state.choices}
 				color={this.state.color}
 				message={this.state.message}
+				progress={this.state.progress}
 				/>
 			}
 			</div>
