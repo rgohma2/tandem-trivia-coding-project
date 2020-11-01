@@ -1,5 +1,6 @@
 import React from 'react'
 import WelcomeComponent from './WelcomeComponent'
+import QuestionShow from './QuestionShow'
 
 class ComponetsContainer extends React.Component {
 	constructor(props) {
@@ -7,14 +8,28 @@ class ComponetsContainer extends React.Component {
 		super(props)
 
 		this.state = {
-
+			start: false
 		}
+	}
+
+	startQuiz = () => {
+		this.setState({
+			start: true
+		})
 	}
 
 	render() {
 		return(
 			<div>
-				<WelcomeComponent/>
+			{
+				this.state.start === false
+				?
+				<WelcomeComponent
+				startQuiz={this.startQuiz}
+				/>
+				:
+				<QuestionShow/>
+			}
 			</div>
 		)
 	}

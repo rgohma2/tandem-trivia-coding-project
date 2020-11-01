@@ -29,10 +29,11 @@ class WelcomeComponent extends React.Component {
 		      <Container textAlign='left' text>
 		        <p style={{
 		          fontSize: '1em'
-		        }}>Test your trivia skills by answering 10 multiple choice questions covering a multitude of topics, 
+		        }}>Test your trivia skills by answering 10 multiple choice questions covering a multitude of topics 
 		        <br/> such as Shakespeare, Greek Mythology, and cats.</p>
 		      </Container>
 		      <Button
+		      onClick={this.props.startQuiz}
 		      size='big'
 		      color='green'
 		      style={{
