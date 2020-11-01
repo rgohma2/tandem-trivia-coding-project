@@ -125,7 +125,32 @@ class QuestionShow extends React.Component {
 	render() {
 		return(
 			<div>
-				<Header>Question 1</Header>
+				<Segment
+		    textAlign='center'
+		    style={{
+		      margin: '15px',
+		      padding: '35px'
+		    }}
+		    >
+		      <Header
+		      style={{
+		        fontSize: '3.5em',
+		        marginBottom: '25px'
+		      }}
+		      >Question 1</Header>
+		      <Container textAlign='left' text>
+		        <p style={{
+		          fontSize: '1em'
+		        }}>.</p>
+		      </Container>
+		      <Button
+		      size='big'
+		      color='green'
+		      style={{
+		        marginTop: '50px'
+		      }}
+		      >Submit</Button>
+		    </Segment>
 			</div>
 		)
 	}
