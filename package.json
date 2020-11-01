@@ -1,0 +1,22 @@
+{
+  "name": "tandom-trivia-coding-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgohma2/tandom-trivia-coding-project.git"
+  },
+  "author": "Randall Gohmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rgohma2/tandom-trivia-coding-project/issues"
+  },
+  "homepage": "https://github.com/rgohma2/tandom-trivia-coding-project#readme",
+  "dependencies": {
+    "create-react-app": "^4.0.0"
+  }
+}
