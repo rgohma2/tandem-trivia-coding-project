@@ -22,15 +22,15 @@ class WelcomeComponent extends React.Component {
 		    >
 		      <Header
 		      style={{
-		        fontSize: '3.5em',
+		        fontSize: '4.5em',
 		        marginBottom: '25px'
 		      }}
 		      >Welcome to The Tandom Trivia Quiz!</Header>
 		      <Container textAlign='left' text>
 		        <p style={{
-		          fontSize: '1em'
+		          fontSize: '1.5em'
 		        }}>Test your trivia skills by answering 21 multiple choice questions covering a multitude of topics 
-		        <br/> such as Shakespeare, Greek Mythology, and cats.</p>
+		         such as Shakespeare, Greek Mythology, and cats.</p>
 		      </Container>
 		      <Button
 		      onClick={this.props.startQuiz}

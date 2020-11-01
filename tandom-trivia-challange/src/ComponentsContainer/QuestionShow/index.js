@@ -48,7 +48,10 @@ class QuestionShow extends React.Component {
 		      	<Form.Group grouped>
 		      	{this.props.choices.map((choice, i) => {
 		      		return (
-		      				<Form.Radio 
+		      				<Form.Radio
+		      				style={{
+		      					fontSize: '1.5em'
+		      				}} 
 		      				key={i}
 		      				label={choice}
 		      				value={choice}
@@ -61,7 +64,7 @@ class QuestionShow extends React.Component {
 		      	{
 		      		this.props.message === ''
 		      		?
-		      		null
+		      		<div style={{height: '50px'}}/>
 		      		:
 	      			<Message
 	      			color={this.props.color}
@@ -70,11 +73,11 @@ class QuestionShow extends React.Component {
 		      	}
 
 			      <Button
+			      style={{
+			      	marginBottom: '50px'
+			      }}
 			      size='big'
 			      color='green'
-			      style={{
-			        margin: '50px 0'
-			      }}
 			      >{this.props.buttonMessage}</Button>
 			    </Form.Group>
 			  </Form>
