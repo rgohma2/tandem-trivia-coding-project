@@ -134,12 +134,13 @@ class ComponetsContainer extends React.Component {
 		}
 	}
 
-	startQuiz = () => {
+	startQuiz = (value) => {
 		this.setState({
 			start: true
 		})
 		this.getQuestion()
 		this.getChoices()
+		console.log(value);
 	}
 
 	checkAnswer = (answer) => {
