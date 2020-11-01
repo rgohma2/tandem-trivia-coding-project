@@ -13,6 +13,11 @@ class QuestionShow extends React.Component {
 
 	handleChange = (e, { value }) => this.setState({ value })
 
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.checkAnswer(this.state.value)
+	}
+
 	render() {
 		const { value } = this.state
 		return(
@@ -35,7 +40,7 @@ class QuestionShow extends React.Component {
 		        }}>{this.props.question.question}</p>
 
 		      </Container>	
-		      <Form>
+		      <Form onSubmit={this.handleSubmit}>
 		      	<Form.Group grouped>
 		      	{this.props.choices.map((choice, i) => {
 		      		return (

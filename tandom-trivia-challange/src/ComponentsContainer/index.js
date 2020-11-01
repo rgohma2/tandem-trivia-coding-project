@@ -135,6 +135,18 @@ class ComponetsContainer extends React.Component {
 		this.getChoices()
 	}
 
+	checkAnswer = (answer) => {
+		console.log(answer);
+		if (this.state.question.correct === answer) {
+			console.log('correct');
+		} else {
+			console.log('incorrect');
+		}
+		this.setState({
+			index: this.state.index + 1
+		})
+	}
+
 	getQuestion = () => {
 		this.setState({
 			question: this.state.questions[this.state.index]
@@ -144,9 +156,7 @@ class ComponetsContainer extends React.Component {
 	getChoices = () => {
 		const question = this.state.questions.[this.state.index]
 		const choices = question.incorrect
-		console.log(choices);
 		choices.splice((Math.random(1) * 4), 0, question.correct)
-		console.log(choices);
 		this.setState({
 			choices: choices
 		})
@@ -163,6 +173,7 @@ class ComponetsContainer extends React.Component {
 				/>
 				:
 				<QuestionShow
+				checkAnswer={this.checkAnswer}
 				question={this.state.question}
 				qNumber={this.state.index + 1}
 				choices={this.state.choices}
