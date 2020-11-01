@@ -12,6 +12,9 @@ class ComponetsContainer extends React.Component {
 			index: 0,
 			question: {},
 			choices:[],
+			message: '',
+			color:'',
+			buttonMessage: 'Submit',
 			questions: [
 			  {
 			    "question": "What was Tandem's previous name?",
@@ -138,12 +141,18 @@ class ComponetsContainer extends React.Component {
 	checkAnswer = (answer) => {
 		console.log(answer);
 		if (this.state.question.correct === answer) {
-			console.log('correct');
+			this.setState({
+				message: 'correct!',
+				color: 'green'
+			})
 		} else {
-			console.log('incorrect');
+			this.setState({
+				message: 'incorrect, the correct answer is ' + this.state.question.correct,
+				color: 'red'
+			})
 		}
 		this.setState({
-			index: this.state.index + 1
+			buttonMessage: 'Next Question'
 		})
 	}
 
@@ -174,9 +183,12 @@ class ComponetsContainer extends React.Component {
 				:
 				<QuestionShow
 				checkAnswer={this.checkAnswer}
+				buttonMessage={this.state.buttonMessage}
 				question={this.state.question}
 				qNumber={this.state.index + 1}
 				choices={this.state.choices}
+				color={this.state.color}
+				message={this.state.message}
 				/>
 			}
 			</div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Segment, Button, Container, Form} from 'semantic-ui-react'
+import {Header, Segment, Button, Container, Form, Message} from 'semantic-ui-react'
 
 class QuestionShow extends React.Component {
 	constructor(props) {
@@ -53,13 +53,20 @@ class QuestionShow extends React.Component {
 		      				/>
 		      			)
 		      	})}
+
+
+	      			<Message
+	      			color={this.props.color}
+	      			header={this.props.message}
+	      			/>
+
 			      <Button
 			      size='big'
 			      color='green'
 			      style={{
 			        marginTop: '50px'
 			      }}
-			      >Submit</Button>
+			      >{this.props.buttonMessage}</Button>
 			    </Form.Group>
 			  </Form>
 
