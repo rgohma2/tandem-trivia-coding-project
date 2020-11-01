@@ -1,6 +1,7 @@
 import React from 'react'
 import WelcomeComponent from './WelcomeComponent'
 import QuestionShow from './QuestionShow'
+import EndComponent from './EndComponent'
 
 class ComponetsContainer extends React.Component {
 	constructor(props) {
@@ -205,17 +206,24 @@ class ComponetsContainer extends React.Component {
 				startQuiz={this.startQuiz}
 				/>
 				:
-				<QuestionShow
-				checkAnswer={this.checkAnswer}
-				advanceQuestion={this.advanceQuestion}
-				buttonMessage={this.state.buttonMessage}
-				question={this.state.question}
-				qNumber={this.state.qNumber}
-				choices={this.state.choices}
-				color={this.state.color}
-				message={this.state.message}
-				progress={this.state.progress}
-				/>
+					this.state.qNumber < 21
+					?
+					<QuestionShow
+					checkAnswer={this.checkAnswer}
+					advanceQuestion={this.advanceQuestion}
+					buttonMessage={this.state.buttonMessage}
+					question={this.state.question}
+					qNumber={this.state.qNumber}
+					choices={this.state.choices}
+					color={this.state.color}
+					message={this.state.message}
+					progress={this.state.progress}
+					/>
+					:
+					<EndComponent
+					correct={this.state.correct}
+					/>
+
 			}
 			</div>
 		)
