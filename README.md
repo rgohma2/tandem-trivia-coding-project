@@ -22,7 +22,7 @@ The correct answer must be revealed after a user has submitted their answer A us
 
 How to Run:
 
-This app is very simple to run. It is hosted on github pages and can be accessed by web address at https://rgohma2.github.io/tandom-trivia-coding-project/.
+This app is very simple to run. It is hosted on github pages and can be accessed by web address at https://rgohma2.github.io/tandem-trivia-coding-project/.
 
 
 Defining Features:
