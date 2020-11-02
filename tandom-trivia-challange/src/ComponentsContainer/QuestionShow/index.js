@@ -19,6 +19,8 @@ class QuestionShow extends React.Component {
 			this.props.checkAnswer(this.state.value)
 		} else if (this.props.buttonMessage === 'Next Question') {
 			this.props.advanceQuestion()
+		} else if (this.props.buttonMessage ==='See Results') {
+			this.props.showResults()
 		}
 	}
 

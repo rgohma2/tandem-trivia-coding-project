@@ -10,6 +10,7 @@ class ComponetsContainer extends React.Component {
 
 		this.state = {
 			start: false,
+			finalQuestionAnswered: false,
 			index: 0,
 			qNumber: 1,
 			question: {},
@@ -149,6 +150,7 @@ class ComponetsContainer extends React.Component {
 	returnToMainMenu = () => {
 		this.setState({
 			start: false,
+			finalQuestionAnswered: false,
 			index: 0,
 			qNumber: 1,
 			question: {},
@@ -292,10 +294,15 @@ class ComponetsContainer extends React.Component {
 				color: 'red'
 			})
 		}
-		this.setState({
-			buttonMessage: 'Next Question',
-			index: this.state.index + 1
-		})
+		if (this.state.index === 9) {
+			this.setState({
+				buttonMessage: 'See Results'
+			})
+		} else 
+			this.setState({
+				buttonMessage: 'Next Question',
+				index: this.state.index + 1
+			})
 	}
 
 	getQuestion = () => {
@@ -326,6 +333,11 @@ class ComponetsContainer extends React.Component {
 	}
 
 	advanceQuestion = () => {
+		if (this.index === 9) {
+			this.setState({
+				index: 10
+			})
+		}
 		this.getChoices()
 		this.getQuestion()
 		this.getProgress()
@@ -344,6 +356,12 @@ class ComponetsContainer extends React.Component {
 
 	}
 
+	showResults = () => {
+		this.setState({
+			finalQuestionAnswered: true
+		})
+	}
+
 	render() {
 		return(
 			<div>
@@ -356,7 +374,7 @@ class ComponetsContainer extends React.Component {
 				chooseMode={this.chooseMode}
 				/>
 				:
-					this.state.index < 10 
+					this.state.finalQuestionAnswered === false 
 					?
 					<QuestionShow
 					mode={this.state.mode}
@@ -370,6 +388,7 @@ class ComponetsContainer extends React.Component {
 					message={this.state.message}
 					progress={this.state.progress}
 					returnToMainMenu={this.returnToMainMenu}
+					showResults={this.showResults}
 					/>
 					:
 					<EndComponent
