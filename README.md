@@ -1,4 +1,4 @@
-# tandom-trivia-coding-project
+# tandem-trivia-coding-project
 
 Goal:
 
