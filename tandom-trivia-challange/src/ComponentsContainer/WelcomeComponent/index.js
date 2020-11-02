@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Segment, Button, Container} from 'semantic-ui-react'
+import {Header, Segment, Button, Container, Message} from 'semantic-ui-react'
 
 class WelcomeComponent extends React.Component {
 	constructor(props) {
@@ -11,7 +11,10 @@ class WelcomeComponent extends React.Component {
 		}
 	}
 
-	handleChange = (e, { value }) => this.setState({ value })
+	handleChange = (e, { value }) => {
+		this.setState({ value })
+		this.props.chooseMode(value)
+	}
 
 	render() {
 		const { value } = this.state
@@ -49,6 +52,18 @@ class WelcomeComponent extends React.Component {
 		      value={'hard'}
 		      >Hard Mode</Button>
 		      </Container>
+
+		      {
+		      		this.props.chooseModeMessage === ''
+		      		?
+		      		<div style={{height: '50px'}}/>
+		      		:
+	      			<Message
+	      			negative
+	      			header={this.props.chooseModeMessage}
+	      			/>
+		      	}
+
 		      <Button
 		      onClick={() => this.props.startQuiz(this.state.value)}
 		      size='big'

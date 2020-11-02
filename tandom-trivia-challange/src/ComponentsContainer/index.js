@@ -19,26 +19,28 @@ class ComponetsContainer extends React.Component {
 			correct: 0,
 			buttonMessage: 'Submit',
 			progress: 0,
-			questions: [
+			chooseModeMessage: '',
+			mode: '',
+			easyQuestions: [
 			  {
-			    "question": "What was Tandem's previous name?",
-			    "incorrect": ["Tandem", "Burger Shack", "Extraordinary Humans"],
-			    "correct": "Devmynd"
+			    "question": "How much does a US One Dollar Bill cost to make?",
+			    "incorrect": ["$0.25", "$1", "$5"],
+			    "correct": "$0.05"
 			  },
 			  {
-			    "question": "In Shakespeare's play Julius Caesar, Caesar's last words were...",
-			    "incorrect": ["Iacta alea est!", "Vidi, vini, vici", "Aegri somnia vana"],
-			    "correct": "Et tu, Brute?"
-			  },
-			  {
-			    "question": "A group of tigers are referred to as:",
-			    "incorrect": ["Chowder", "Pride", "Destruction"],
-			    "correct": "Ambush"
+			    "question": "Approximately how many grapes go into a bottle of wine?",
+			    "incorrect": ["500", "200", "1000"],
+			    "correct": "700"
 			  },
 			  {
 			    "question": "What is the top speed an average cat can travel?",
 			    "incorrect": ["42 mph", "13 mph", "9 mph"],
 			    "correct": "31 mph"
+			  },
+			  {
+			    "question": "Not American at all, where is apple pie from?",
+			    "incorrect": ["Japan", "Ethiopia", "Canada"],
+			    "correct": "England"
 			  },
 			  {
 			    "question": "A cat can jump to _____ times its own height:",
@@ -60,7 +62,6 @@ class ComponetsContainer extends React.Component {
 			    "incorrect": ["Lake Baikal", "Lake Michigan", "Lake Victoria"],
 			    "correct": "Lake Superior"
 			  },
-
 			  {
 			    "question": "In a website address bar, what does WWW stand for?",
 			    "incorrect": ["Wild Wild West", "War World Web"],
@@ -70,7 +71,9 @@ class ComponetsContainer extends React.Component {
 			    "question": "In a game of bingo, what number is represented by the name two little ducks?",
 			    "incorrect": ["20", "55", "77"],
 			    "correct": "22"
-			  },
+			  }  
+			],
+			hardQuestions: [
 			  {
 			    "question": "According to Greek mythology, who was the first woman on Earth?",
 			    "incorrect": ["Lilith", "Eve", "Hera"],
@@ -97,29 +100,19 @@ class ComponetsContainer extends React.Component {
 			    "correct": "Octothorpe"
 			  },
 			  {
-			    "question": "Not American at all, where is apple pie from?",
-			    "incorrect": ["Japan", "Ethiopia", "Canada"],
-			    "correct": "England"
-			  },
-			  {
 			    "question": "What is the national animal of Scotland?",
 			    "incorrect": ["Bear", "Rabbit", "Seal"],
 			    "correct": "Unicorn"
 			  },
 			  {
+			    "question": "A group of tigers are referred to as:",
+			    "incorrect": ["Chowder", "Pride", "Destruction"],
+			    "correct": "Ambush"
+			  },
+			  {
 			    "question": "Where in the world is the only place where Canada is *due south*",
 			    "incorrect": ["Alaska", "Russia", "Washington"],
 			    "correct": "Detroit"
-			  },
-			  {
-			    "question": "Approximately how many grapes go into a bottle of wine?",
-			    "incorrect": ["500", "200", "1000"],
-			    "correct": "700"
-			  },
-			  {
-			    "question": "How much does a US One Dollar Bill cost to make?",
-			    "incorrect": ["$0.25", "$1", "$5"],
-			    "correct": "$0.05"
 			  },
 			  {
 			    "question": "The Vatican bank has the only ATM in the world that allows users to do what?",
@@ -129,18 +122,51 @@ class ComponetsContainer extends React.Component {
 			      "Purchase indulgences"
 			    ],
 			    "correct": "Perform transactions in Latin"
+			  },
+			  {
+			    "question": "What was Tandem's previous name?",
+			    "incorrect": ["Tandem", "Burger Shack", "Extraordinary Humans"],
+			    "correct": "Devmynd"
 			  }
 			]
 		}
 	}
 
 	startQuiz = (value) => {
+		if (value === '') {
+			this.setState({
+				chooseModeMessage: 'Please choose easy or hard mode to start.'
+			})
+		} else {
+			this.setState({
+				start: true
+			})
+			this.getQuestion()
+			this.getChoices()
+		}
+	}
+
+	returnToMainMenu = () => {
 		this.setState({
-			start: true
+			start: false,
+			index: 0,
+			qNumber: 1,
+			question: {},
+			choices:[],
+			message: '',
+			color:'',
+			correct: 0,
+			buttonMessage: 'Submit',
+			progress: 0,
+			chooseModeMessage: '',
+			mode: ''
 		})
-		this.getQuestion()
-		this.getChoices()
-		console.log(value);
+	}
+
+	chooseMode = (value) => {
+		this.setState({
+			mode: value
+		})
 	}
 
 	checkAnswer = (answer) => {
@@ -164,13 +190,25 @@ class ComponetsContainer extends React.Component {
 	}
 
 	getQuestion = () => {
-		this.setState({
-			question: this.state.questions[this.state.index]
-		})
+		if (this.state.mode === 'easy') {
+			this.setState({
+				question: this.state.easyQuestions[this.state.index]
+			})
+		} else if (this.state.mode === 'hard') {
+			this.setState({
+				question: this.state.hardQuestions[this.state.index]
+			})
+		}
 	}
 
 	getChoices = () => {
-		const question = this.state.questions.[this.state.index]
+		let question = null
+		this.state.mode === 'easy'
+		?
+		question = this.state.easyQuestions[this.state.index]
+		:
+		question = this.state.hardQuestions[this.state.index]
+
 		const choices = question.incorrect
 		choices.splice((Math.random(1) * 4), 0, question.correct)
 		this.setState({
@@ -190,7 +228,7 @@ class ComponetsContainer extends React.Component {
 	}
 
 	getProgress = () => {
-		const percent = (this.state.qNumber/21)
+		const percent = (this.state.qNumber/10)
 		this.setState({
 			progress: (percent.toFixed(2) * 100)
 		})
@@ -205,9 +243,11 @@ class ComponetsContainer extends React.Component {
 				?
 				<WelcomeComponent
 				startQuiz={this.startQuiz}
+				chooseModeMessage={this.state.chooseModeMessage}
+				chooseMode={this.chooseMode}
 				/>
 				:
-					this.state.qNumber < 21
+					this.state.index < 10 
 					?
 					<QuestionShow
 					checkAnswer={this.checkAnswer}
@@ -219,12 +259,14 @@ class ComponetsContainer extends React.Component {
 					color={this.state.color}
 					message={this.state.message}
 					progress={this.state.progress}
+					returnToMainMenu={this.returnToMainMenu}
 					/>
 					:
 					<EndComponent
 					correct={this.state.correct}
+					mode={this.state.mode}
+					returnToMainMenu={this.returnToMainMenu}
 					/>
-
 			}
 			</div>
 		)

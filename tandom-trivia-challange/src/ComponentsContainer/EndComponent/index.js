@@ -32,14 +32,21 @@ class EndComponent extends React.Component {
 		      style={{
 		      	fontSize:'7em'
 		      }}
-		      >{((this.props.correct/21).toFixed(2) * 100)}%
+		      >{((this.props.correct/10).toFixed(2) * 100)}%
 		      </Header>
 
 		      <Container textAlign='left' text>
 		        <p style={{
 		          fontSize: '2em'
-		        }}>You got <span style={{color:'blue'}}>{this.props.correct}</span> questions right out of a possible <span style={{color:'blue'}}>21</span>.</p>
+		        }}>You got <span style={{color:'blue'}}>{this.props.correct}</span> questions right out of <span style={{color:'blue'}}>10</span> on <span style={{color: 'red'}}>{this.props.mode}</span> mode.</p>
 		      </Container>
+
+		      <Button
+		      style={{
+		      	marginTop: '30px'
+		      }} 
+		      onClick = {this.props.returnToMainMenu}
+		      color= 'red' >Restart</Button>
 			</Segment>
 		)
 	}

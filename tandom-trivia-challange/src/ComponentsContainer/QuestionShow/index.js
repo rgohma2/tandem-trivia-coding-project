@@ -32,6 +32,12 @@ class QuestionShow extends React.Component {
 		      padding: '35px'
 		    }}
 		    >
+		      <Container textAlign={'right'}>
+		      	<Button 
+		      	basic
+		      	onClick={this.props.returnToMainMenu} 
+		      	>main menu</Button>
+		      </Container>
 		      <Header
 		      style={{
 		        fontSize: '3.5em',
