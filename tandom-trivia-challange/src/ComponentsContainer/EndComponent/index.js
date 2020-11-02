@@ -26,7 +26,8 @@ class EndComponent extends React.Component {
 		        fontSize: '3.5em',
 		        marginBottom: '25px'
 		      }}
-		      >Thanks for playing The Tandom Trivia Quiz!</Header>
+		      >Thanks for playing The Tandom Trivia Quiz!
+		      </Header>
 
 		      <Header
 		      style={{

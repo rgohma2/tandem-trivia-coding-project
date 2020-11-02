@@ -359,6 +359,7 @@ class ComponetsContainer extends React.Component {
 					this.state.index < 10 
 					?
 					<QuestionShow
+					mode={this.state.mode}
 					checkAnswer={this.checkAnswer}
 					advanceQuestion={this.advanceQuestion}
 					buttonMessage={this.state.buttonMessage}

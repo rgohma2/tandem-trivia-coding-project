@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Segment, Button, Container, Form, Message, Progress} from 'semantic-ui-react'
+import {Header, Segment, Button, Container, Form, Message, Progress, Grid} from 'semantic-ui-react'
 
 class QuestionShow extends React.Component {
 	constructor(props) {
@@ -32,12 +32,18 @@ class QuestionShow extends React.Component {
 		      padding: '35px'
 		    }}
 		    >
-		      <Container textAlign={'right'}>
+		      <Grid>
+		      	<Header style={{
+		      		color:'gray',
+		      		marginTop: '5px'
+		      	}}>{this.props.mode} mode</Header>
+		      	<Container textAlign='right'>
 		      	<Button 
 		      	basic
 		      	onClick={this.props.returnToMainMenu} 
 		      	>main menu</Button>
-		      </Container>
+		      	</Container>
+		      </Grid>
 		      <Header
 		      style={{
 		        fontSize: '3.5em',
@@ -50,8 +56,10 @@ class QuestionShow extends React.Component {
 		        }}>{this.props.question.question}</p>
 
 		      </Container>	
-		      <Form onSubmit={this.handleSubmit}>
+		      <Form style={{textAlign:'center'}}
+		      onSubmit={this.handleSubmit}>
 		      	<Form.Group grouped>
+		      	<Container textAlign='left' text>
 		      	{this.props.choices.map((choice, i) => {
 		      		return (
 		      				<Form.Radio
@@ -78,6 +86,8 @@ class QuestionShow extends React.Component {
 	      			/>
 		      	}
 
+			      </Container>
+			    </Form.Group>
 			      <Button
 			      style={{
 			      	marginBottom: '50px'
@@ -85,7 +95,6 @@ class QuestionShow extends React.Component {
 			      size='big'
 			      color='green'
 			      >{this.props.buttonMessage}</Button>
-			    </Form.Group>
 			  </Form>
 				  <Progress
 				  percent={this.props.progress.toFixed(2)} 
