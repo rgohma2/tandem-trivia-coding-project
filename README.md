@@ -1,7 +1,5 @@
 # tandom-trivia-coding-project
 
-About The App
-
 Goal:
 
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
