@@ -1,11 +1,11 @@
 # tandem-trivia-coding-project
 
-Goal:
+#Goal:
 
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
 Use creative license in terms of how you want us to see this game. At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score. It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
 
-Assumptions:
+#Assumptions:
 
 A round of trivia has 10 Questions
 All questions are multiple-choice questions
@@ -20,12 +20,12 @@ Questions with their multiple choice options must be displayed one at a time. Qu
 A user can select only 1 answer out of the 4 possible answers.
 The correct answer must be revealed after a user has submitted their answer A user can see the score they received at the end of the round.
 
-How to Run:
+#How to Run:
 
 This app is very simple to run. It is hosted on github pages and can be accessed by web address at https://rgohma2.github.io/tandom-trivia-coding-project/.
 
 
-Defining Features:
+#Defining Features:
 
 Apart from meeting the requirements of the project, I also added a couple unique features....
 
