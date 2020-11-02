@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/tandom-trivia-coding-project/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/tandom-trivia-coding-project/static/js/main.22db5c98.chunk.js",
+    "main.js.map": "/tandom-trivia-coding-project/static/js/main.22db5c98.chunk.js.map",
+    "runtime-main.js": "/tandom-trivia-coding-project/static/js/runtime-main.7e9263d1.js",
+    "runtime-main.js.map": "/tandom-trivia-coding-project/static/js/runtime-main.7e9263d1.js.map",
+    "static/css/2.4a64e8d8.chunk.css": "/tandom-trivia-coding-project/static/css/2.4a64e8d8.chunk.css",
+    "static/js/2.10e5080d.chunk.js": "/tandom-trivia-coding-project/static/js/2.10e5080d.chunk.js",
+    "static/js/2.10e5080d.chunk.js.map": "/tandom-trivia-coding-project/static/js/2.10e5080d.chunk.js.map",
+    "static/js/3.b6529a22.chunk.js": "/tandom-trivia-coding-project/static/js/3.b6529a22.chunk.js",
+    "static/js/3.b6529a22.chunk.js.map": "/tandom-trivia-coding-project/static/js/3.b6529a22.chunk.js.map",
+    "index.html": "/tandom-trivia-coding-project/index.html",
+    "static/css/2.4a64e8d8.chunk.css.map": "/tandom-trivia-coding-project/static/css/2.4a64e8d8.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/tandom-trivia-coding-project/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.10e5080d.chunk.js.LICENSE.txt": "/tandom-trivia-coding-project/static/js/2.10e5080d.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/tandom-trivia-coding-project/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7e9263d1.js",
+    "static/css/2.4a64e8d8.chunk.css",
+    "static/js/2.10e5080d.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.22db5c98.chunk.js"
+  ]
+}
